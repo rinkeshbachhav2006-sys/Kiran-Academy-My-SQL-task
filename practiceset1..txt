@@ -1,0 +1,157 @@
+1.mysql> create database company_db;
+Query OK, 1 row affected (0.01 sec)
+
+2.mysql> use company_db;
+Database changed
+
+3.create table employee(employee_id int primary key, employee_name varchar (100),department varchar (50),salary decimal(10,2),
+ city varchar (50), joining_date date, stetus varchar(100) );
+
+4.mysql> DESCRIBE employee;
+
+5.mysql> INSERT INTO employee (employee_id, employee_name, department, salary, city, joining_date, stetus) VALUES
+    -> (101, 'Shyam', 'HR', 55000, 'Mumbai', '2012-03-15', 'Active'),
+    -> (102, 'Priya', 'Finance', 75000, 'Delhi', '2015-06-20', 'Active'),
+    -> (103, 'Amit', 'IT', 120000, 'Bangalore', '2018-01-10', 'DevOps'),
+    -> (104, 'Sneha', 'Marketing', 65000, 'Hyderabad', '2016-09-05', 'Active'),
+    -> (105, 'Rahul', 'Sales', 48000, 'Chennai', '2014-11-25', 'Active'),
+    -> (106, 'Kiran', 'IT', 95000, 'Pune', '2019-07-18', 'DevOps'),
+    -> (107, 'Meena', 'Finance', 82000, 'Delhi', '2013-02-12', 'Active'),
+    -> (108, 'Vikas', 'HR', 60000, 'Mumbai', '2017-08-30', 'Active'),
+    -> (109, 'Anjali', 'IT', 110000, 'Bangalore', '2020-05-14', 'DevOps'),
+    -> (110, 'Suresh', 'Sales', 50000, 'Hyderabad', '2011-04-01', 'Active'),
+    -> (111, 'Neha', 'Marketing', 70000, 'Chennai', '2019-12-09', 'Active'),
+    -> (112, 'Arjun', 'Finance', 88000, 'Delhi', '2015-10-22', 'Active'),
+    -> (113, 'Pooja', 'HR', 62000, 'Mumbai', '2018-06-11', 'Active'),
+    -> (114, 'Ravi', 'IT', 125000, 'Pune', '2021-03-03', 'DevOps'),
+    -> (115, 'Komal', 'Sales', 54000, 'Bangalore', '2012-07-19', 'Active');
+Query OK, 15 rows affected (0.01 sec)
+Records: 15  Duplicates: 0  Warnings: 0
+
+6.mysql> select * from employee;
+
+7.mysql> select employee_name from employee;
+
+8.mysql> select employee_name , salary from employee;
+
+9.mysql> select employee_name , department,city from employee;
+
+10.mysql> select * from employee where city = 'pune';
+
+11.mysql> select * from employee where city = 'mumbai';
+
+12.mysql> select * from employee where department = 'Development';
+
+13.mysql> select * from employee where department = 'testing';
+
+14.mysql> select * from employee where stetus = 'Active';
+
+15. mysql> select * from employee where stetus =  'DevOps';
+
+16. mysql> select * from employee where employee_id = 103;
+
+17.mysql> select * from employee where employee_name='kiran';
+
+18.mysql> select * from employee where salary > 40000;
+
+19.mysql> select * from employee where salary >= 42000;
+
+20.mysql> select * from employee where city ='pune'and stetus ='Active';
+Empty set (0.00 sec)
+
+21.mysql> select * from employee where department ='IT'and salary > 55000;
+
+22.mysql> select * from employee where city ='pune'or city = 'Mumbai';
+
+23.mysql> update employee set salary= 4000 where employee_name = 'Amit';
+Query OK, 1 row affected (0.01 sec)
+
+24.mysql> update employee  set salary=35000 where employee_name ='Shyam';
+Query OK, 1 row affected (0.01 sec)
+
+25.mysql> update employee  set stetus='Inactive' where employee_name ='Kiran';
+Query OK, 1 row affected (0.01 sec)
+
+26.mysql> update employee set city= 'Nashik ' where employee_name = 'Priya';
+Query OK, 1 row affected (0.01 sec)
+
+27.mysql> update employee set department= 'devlopment ' where employee_name = 'Priya';
+Query OK, 1 row affected (0.01 sec)
+
+28.mysql> update employee set salary = salary + 3000 where employee_id = 103;
+Query OK, 1 row affected (0.01 sec)
+
+29.mysql> update employee set salary = salary + 2000 where department='IT';
+Query OK, 4 rows affected (0.01 sec)
+
+30.mysql> update employee set city = 'Mumbai branch' where city='Mumbai';
+Query OK, 3 rows affected (0.01 sec)
+
+31.mysql> DELETE FROM employee
+    -> WHERE employee_id = 105;
+Query OK, 1 row affected (0.01 sec)
+
+32.mysql>  delete from employee WHERE employee_name = 'komal';
+Query OK, 1 row affected (0.01 sec)
+
+33.mysql>  delete from employee WHERE stetus  = 'DevOps';
+Query OK, 3 rows affected (0.01 sec)
+
+34.mysql>  delete from employee WHERE salary<30000;
+Query OK, 0 rows affected (0.00 sec)
+
+35.mysql>  delete from employee WHERE employee_id=104;
+Query OK, 1 row affected (0.01 sec)
+
+36.mysql> alter table employee add email varchar (100);
+Query OK, 0 rows affected (0.03 sec)
+
+37.mysql> alter table employee add mobail varchar (10);
+Query OK, 0 rows affected (0.02 sec)
+
+38.mysql> alter table employee modify city varchar (100);
+Query OK, 9 rows affected (0.07 sec)
+
+39.mysql> alter table employee rename column employee_name to name;
+Query OK, 0 rows affected (0.02 sec)
+
+40.mysql> alter table employee drop column mobail;
+Query OK, 0 rows affected (0.02 sec)
+
+41.mysql> alter table employee add experience int;
+Query OK, 0 rows affected (0.02 sec)
+
+42.mysql> alter table employee add experience int;
+Query OK, 0 rows affected (0.02 sec)
+
+43.update employee set experience = 12 where employee_id = 102;
+Query OK, 1 row affected (0.01 sec)
+
+44.mysql> create table department (d_id int, d_name varchar (30),location varchar (30));
+
+45.mysql> insert into department (d_id, d_name, location) values(1001,'IT','pune'),(1003,'devlopment','pune'),(1003,'Finance','modnimb');
+Query OK, 3 rows affected (0.01 sec)
+
+46.mysql> select * from department ;
+
+47. mysql> update department set location = "solpaur" where d_id= 1001;
+Query OK, 1 row affected (0.01 sec)
+
+48.mysql> delete from department where d_id = 1003;
+Query OK, 2 rows affected (0.01 sec)
+
+49.mysql> rename table department to companny_department;
+Query OK, 0 rows affected (0.02 sec)
+
+50.mysql> DESCRIBE   companny_department;
+
+51.mysql> TRUNCATE table companny_department;
+Query OK, 0 rows affected (0.05 sec)
+
+52.mysql> select * from companny_department;
+
+53.mysql> drop table companny_department;
+Query OK, 0 rows affected (0.01 sec)
+
+54.mysql> show tables;
+
